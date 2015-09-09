@@ -5,7 +5,7 @@
 
 原[PDF教程][pdf]
 
-我的[中文翻译版本][translate]
+我的[中文翻译版本][translate]，[或看这里][translate2]
 
 宿主机：CentOS Linux 6.6 i386
 ```
@@ -17,11 +17,12 @@ Linux nut32.nutdomain 2.6.32-504.el6.i686 #1 SMP Wed Oct 15 03:02:07 UTC 2014 i6
 
 * GNU ld version 2.20.51.0.2-5.43.el6 20100205
 
-* gcc 4.4.7 
+* GCC 4.4.7 
 
 * NASM version 2.07
 
 
 [pdf]:          http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf
 [translate]:    http://xn--37q877g.cn/osdev/writing-a-simple-operating-system-from-scratch-0/
+[translate2]:   http://qibing.me/osdev/writing-a-simple-operating-system-from-scratch-0/
 
