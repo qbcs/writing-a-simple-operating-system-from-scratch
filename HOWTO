@@ -1,0 +1,8 @@
+1. 汇编
+nasm boot_sector.v1.asm -f bin -o boot_sector.v1.bin
+
+2. 检查一下生成的机器码文件（floppy disk image）
+od -t x1 -A n boot_sector.v1.bin
+
+3. 启动模拟器(qemu安装：brew install qemu)
+qemu-system-i386 /coder/osdev/os_from_zero/boot_sector.v1.bin
