@@ -1,0 +1,5 @@
+从16-bit实模式切换到32-bit保护模式
+
+测试命令：
+qemu-system-i386 /coder/osdev/os_from_zero/v10_pm/boot_sector.v10.linux.bin
+qemu-system-i386 /coder/osdev/os_from_zero/v10_pm/boot_sector.v10.mac.bin
