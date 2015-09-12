@@ -1,0 +1,20 @@
+功能：展示C程序的编译、objdump查看obj文件、链接、反汇编
+目的：通过反编译的方式，说明C程序结构和汇编程序结构的关系，参见PDF教程
+
+附注：PDF教程上的例子应该是linux32平台演示
+
+linux64平台：
+      编译：gcc -ffreestanding -c objdump_test.c -o objdump_test.linux64.o
+      查看：objdump -d objdump_test.linux64.o
+      链接：ld -o objdump_test.linux64.bin -Ttext 0x0 --oformat binary objdump_test.linux64.o
+      反汇编：ndisasm -b 64 objdump_test.linux64.bin
+
+linux32平台：
+      编译：gcc -ffreestanding -c objdump_test.c -o objdump_test.linux32.o
+      查看：objdump -d objdump_test.linux32.o
+      链接：ld -o objdump_test.linux32.bin -Ttext 0x0 --oformat binary objdump_test.linux32.o
+      反汇编：ndisasm -b 32 objdump_test.linux32.bin
+
+mac OS X Yosemite 10.10.3平台：
+      编译：gcc -ffreestanding -c objdump_test.c -o objdump_test.mac.o
+      查看：otool -tv objdump_test.mac.o

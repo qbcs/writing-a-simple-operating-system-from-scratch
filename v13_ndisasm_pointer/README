@@ -1,0 +1,10 @@
+反编译一个含有指针变量，指向一个0结束初始化字符串的C程序, 看看反编译后的汇编结构
+
+linux32平台:
+    gcc -ffreestanding -c pointer_string.c  -o pointer_string.linux32.o
+    ld -o pointer_string.linux32.bin -Ttext 0x0 --oformat binary pointer_string.linux32.o
+    ndisasm -b 32 pointer_string.linux32.bin
+
+注意：
+反汇编结果ret指令出现了奇怪的指令，这些其实是反汇编器将数据"Hello\0"当做了指令
+mov dword [ebp-0x4],0xf    /* 将数据的偏移地址存放到栈变量中 */

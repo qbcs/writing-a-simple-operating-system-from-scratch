@@ -1,0 +1,6 @@
+反编译一个含有局部变量的C程序，看看汇编的实现
+
+linux32平台:
+    gcc -ffreestanding -c local_var.c  -o local_var.linux32.o
+    ld -o local_var.linux32.bin -Ttext 0x0 --oformat binary local_var.linux32.o
+    ndisasm -b 32 local_var.linux32.bin
