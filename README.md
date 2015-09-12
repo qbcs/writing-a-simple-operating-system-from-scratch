@@ -7,7 +7,7 @@
 
 我的[中文翻译版本][translate]，[或看这里][translate2]
 
-宿主机：
+编译机：
 
 CentOS Linux 6.6 i386
 
@@ -23,6 +23,12 @@ Linux nut32.nutdomain 2.6.32-504.el6.i686 #1 SMP Wed Oct 15 03:02:07 UTC 2014 i6
 * GCC 4.4.7 
 
 * NASM version 2.07
+
+测试内核环境：
+
+* 虚拟机：QEMU emulator version 2.2.1
+
+* 宿主机：Mac OS X 10.10.3
 
 
 [pdf]:          http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf
