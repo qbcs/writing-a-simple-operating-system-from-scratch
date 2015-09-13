@@ -1,0 +1,7 @@
+v15和v14代码内容是一样的，主要是将整个工程按目录重组，用通用规则写Makefile
+更新：新增drivers/screen模块
+
+命令：
+make (环境：linux32)
+qemu-system-i386 /coder/osdev/os_from_zero/v15_organize_code_base/os_image
+

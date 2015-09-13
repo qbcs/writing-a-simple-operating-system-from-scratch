@@ -1,0 +1,33 @@
+说了这么多理论，是时候用C写Kernel并启动起来了！
+
+步骤如下：
+1、编写、编译kernel
+2、编写、汇编boot sector
+3、创建一个kernel image，包括boot sector和kernel
+4、启动boot sector
+5、将kernel加载进内存
+6、切换到32位保护模式
+7、开始执行kernel
+
+环境：*** linux32 ***
+(在64位环境下，这些命令也能工作，不过编译出来的kernel.bin大多了，
+需要用ndisasm -b 64来反汇编, 64位反编译出来的汇编代与32位反汇编相
+比码寄存器都是不一样的，不过总体结构和32位反汇编结果一致)
+
+命令：
+1、编译kernel
+nasm kernel_entry.asm -f elf -o kernel_entry.o      /* kernel入口处理，指定main函数为入口 */
+gcc -ffreestanding -c kernel.c -o kernel.o          /* kernel实现文件 */
+ld -o kernel.bin -Ttext 0x1000 --oformat binary kernel_entry.o kernel.o     /* 链接器会按照命令指定的顺序放置代码，因此kernel_entry的代码会在前面 */
+(ndisasm kernel.bin -b 32)
+
+2、汇编boot sector
+nasm boot_sector.v14.asm -f bin -o boot_sector.v14.bin
+
+3、创建kernel image
+/* 由于硬编码读了boot sector之后的15个扇区，所以需要将os_image后面至少填充15个扇区的空数据, 保证能读成功 */
+dd if=/dev/zero of=15sector bs=512 count=15 2> /dev/null
+cat boot_sector.v14.bin kernel.bin 15sector > os_image
+
+4、启动
+qemu-system-i386 /coder/osdev/os_from_zero/v14_bootsector_kernel/os_image
